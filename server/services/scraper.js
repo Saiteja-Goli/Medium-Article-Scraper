@@ -1,37 +1,4 @@
-// const puppeteer = require('puppeteer');
 
-// let articlesCache = [];
-
-// const scrapeMedium = async (topic) => {
-//     const browser = await puppeteer.launch();
-//     const page = await browser.newPage();
-//     await page.goto(`https://medium.com/search?q=${topic}`);
-
-//     const articles = await page.evaluate(() => {
-//         const articleNodes = document.querySelectorAll('article');
-//         return Array.from(articleNodes).slice(0, 5).map(article => {
-//             const title = article.querySelector('h2') ? article.querySelector('h2').innerText : '';
-//             const author = article.querySelector('h3') ? article.querySelector('h3').innerText : '';
-//             const pubDate = article.querySelector('date') ? article.querySelector('date').getAttribute('datetime') : '';
-//             const url = article.querySelector('a') ? article.querySelector('a').href : '';
-//             return { title, author, pubDate, url };
-//         });
-//     });
-
-//     await browser.close();
-    
-//     articlesCache = articles;
-//     return articles;
-// };
-
-// const getArticles = () => {
-//     return articlesCache;
-// };
-
-// module.exports = {
-//     scrapeMedium,
-//     getArticles
-// };
 const puppeteer = require('puppeteer');
 
 let articlesCache = [];
@@ -66,3 +33,44 @@ module.exports = {
     scrapeMedium,
     getArticles
 };
+
+// const puppeteer = require('puppeteer-core');
+// const chrome = require('chrome-aws-lambda');
+
+// let articlesCache = [];
+
+// const scrapeMedium = async (topic) => {
+//     const browser = await puppeteer.launch({
+//         args: [...chrome.args, '--no-sandbox', '--disable-setuid-sandbox'],
+//         executablePath: await chrome.executablePath,
+//         headless: chrome.headless
+//     });
+
+//     const page = await browser.newPage();
+//     await page.goto(`https://medium.com/search?q=${topic}`);
+
+//     const articles = await page.evaluate(() => {
+//         const articleNodes = document.querySelectorAll('article');
+//         return Array.from(articleNodes).slice(0, 5).map(article => {
+//             const title = article.querySelector('h2') ? article.querySelector('h2').innerText.trim() : '';
+//             const author = article.querySelector('p') ? article.querySelector('p').innerText.trim() : '';
+//             const pubDate = article.querySelector('span') ? article.querySelector('span').textContent.trim() : '';
+//             const url = article.querySelector('a') ? article.querySelector('a').href : '';
+//             return { title, author, pubDate, url };
+//         });
+//     });
+
+//     await browser.close();
+
+//     articlesCache = articles;
+//     return articles;
+// };
+
+// const getArticles = () => {
+//     return articlesCache;
+// };
+
+// module.exports = {
+//     scrapeMedium,
+//     getArticles
+// };
