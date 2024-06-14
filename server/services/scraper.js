@@ -46,7 +46,7 @@ const scrapeMedium = async (topic) => {
         return Array.from(articleNodes).slice(0, 5).map(article => {
             const title = article.querySelector('h2') ? article.querySelector('h2').innerText.trim() : '';
             const author = article.querySelector('p') ? article.querySelector('p').innerText.trim() : '';
-            const pubDate = article.querySelector('span') ? article.querySelector('span').textContent.trim(3) : '';
+            const pubDate = article.querySelector('span') ? article.querySelector('span').textContent.trim() : '';
             const url = article.querySelector('a') ? article.querySelector('a').href : '';
             return { title, author, pubDate, url };
         });
