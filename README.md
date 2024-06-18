@@ -3,7 +3,7 @@ Web application that allows users to input a topic and then scrapes articles rel
 Medium. The application will display the top 5 related articles on the page, and users can click on an article to view it on Medium.
 
 ## Walkthrough of the project
-`https://drive.google.com/file/d/197ZuKfH_AKO9CJy6E7QJNoBmxS_ODJ7x/view?usp=drive_link`
+ Video Link : [Click Here](https://drive.google.com/file/d/197ZuKfH_AKO9CJy6E7QJNoBmxS_ODJ7x/view?usp=drive_link)
 
 ## Getting Started
 Follow these instructions to set up and run the Medium-Article-Scraper App locally.
@@ -25,7 +25,8 @@ Make sure you have the following installed:
 - `nodemon index.js`
 
 # Access Deployed Application: 
-- Open the deployed application using the provided link.`https://medium-article-scraper-five.vercel.app/`.
+- Open the deployed application using the provided link : [Click Here](https://medium-article-scraper-five.vercel.app/).
+
 
 
 ## Technologies Used
