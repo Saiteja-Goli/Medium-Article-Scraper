@@ -10,11 +10,11 @@ const ArticleList = ({ articles }) => {
         >
             {articles.map((article, index) => (
                 <Box key={index} p={5} shadow="base" borderWidth="1px" borderRadius="lg" position="relative">
-                    <Text fontSize="xl" fontWeight="bold" mb={2}>{article.title}</Text>
+                    <Text fontSize="lg" fontWeight="bold" mb={2}>{article.title}</Text>
                     <Text mb={2} mt={2}>By: {article.author || 'Unknown Author'}</Text>
-                    <Text mb={2}>Published: {article.pubDate}</Text>
+                    <Text mb={2}>Published: {article.pubDate.split('·').pop().trim()}</Text>
                     <Link href={article.url} isExternal color="teal.500">
-                        <Button position="absolute" bottom={2} right={2}>
+                        <Button position="absolute" varian='solid' colorScheme='gray' bottom={2} right={2}>
                             View
                         </Button>
                     </Link>

@@ -20,7 +20,7 @@
 //     });
 
 //     await browser.close();
-    
+
 //     articlesCache = articles;
 //     return articles;
 // };
@@ -33,17 +33,15 @@
 //     scrapeMedium,
 //     getArticles
 // };
+
 const puppeteer = require('puppeteer');
 
-let articlesCache = [];
-
 const scrapeMedium = async (topic) => {
-    const browser = await puppeteer.launch({
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
-        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/google-chrome-stable'
-    });
+    const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.goto(`https://medium.com/search?q=${topic}`);
+    const url = `https://medium.com/search?q=${topic}`;
+
+    await page.goto(url);
 
     const articles = await page.evaluate(() => {
         const articleNodes = document.querySelectorAll('article');
@@ -57,16 +55,10 @@ const scrapeMedium = async (topic) => {
     });
 
     await browser.close();
-    
-    articlesCache = articles;
+
     return articles;
 };
 
-const getArticles = () => {
-    return articlesCache;
-};
-
 module.exports = {
-    scrapeMedium,
-    getArticles
+    scrapeMedium
 };

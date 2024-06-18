@@ -7,12 +7,14 @@
     "server": "nodemon index.js",
     "start": "node index.js",
     "postinstall": "npx puppeteer install",
+    "build": "npm install && npm run postinstall",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "chrome-aws-lambda": "^10.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",

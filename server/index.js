@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.json({ Message: "Server is Running Successfully" });
+    res.json({ Message: "Server is Running Successfully.. ." });
 })
 
 

@@ -44,7 +44,7 @@ const App = () => {
                 title: "Error fetching articles.",
                 description: "Something Went Wrong",
                 status: "error",
-                duration: 5000,
+                duration: 10000,
                 isClosable: true,
             });
         } finally {
